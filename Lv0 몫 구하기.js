@@ -12,3 +12,4 @@ function solution(num1, num2) {
 // *TIP parseInt는 문자를 숫자(정수(integer) 또는 NaN)로 변환
 
 // !문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120805
+
