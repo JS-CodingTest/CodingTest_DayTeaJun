@@ -14,7 +14,6 @@ function solution(numer1, denom1, numer2, denom2) {
     
     return [numer / gcd, denom / gcd] // 최대 공약수를 각 분자, 분모에 나눈 후, 배열에 넣기
 }
-
 // cal_gcd(a,b) 함수 설명
 // 최대 공약수 구하기
 // 1. a, b를 서로 나눈다. 만약 나누어진다면 b가 최대 공약수
