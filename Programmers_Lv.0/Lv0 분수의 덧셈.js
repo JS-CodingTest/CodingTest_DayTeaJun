@@ -10,7 +10,6 @@ function cal_gcd(a,b) { // 최대 공약수 계산 함수
 function solution(numer1, denom1, numer2, denom2) {    
     let numer = (numer1 * denom2) + (numer2 * denom1); // 분자
     let denom = denom1 * denom2; // 분모
-    
     let gcd = cal_gcd(numer,denom); // 최대 공약수 계산
     
     return [numer / gcd, denom / gcd] // 최대 공약수를 각 분자, 분모에 나눈 후, 배열에 넣기
