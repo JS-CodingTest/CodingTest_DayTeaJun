@@ -26,6 +26,7 @@ function solution(numbers) {
 // 전개구문 (...a) 은 현재까지 누적된 배열 a의 모든 요소를 개별 요소로 분리한 후, 합친다.
 // [...[2]] == [2] -> [2, ...[4]] == [2, 4] -> [2, 4, ...[6]] == [2, 4, 6]
 
+
 // map 이용한 방법
 function solution(numbers) {
     return numbers.map((number) => number * 2)
