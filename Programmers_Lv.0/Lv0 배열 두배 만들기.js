@@ -20,10 +20,16 @@ function solution(numbers) {
     return numbers.reduce((a, b) => [...a, b * 2], []);
 }
 // reduce함수는 배열의 각 요소를 순회하며 callback함수의 실행 값을 누적하여 하나의 결과값을 반환
+// a값은 누산기, b값은 최근 참조(현재)값, []은 초기 값(말 그대로 빈 배열)
+// numbers가 [2, 4, 6]이라 가정한다면,
+// 빈 배열 안에 a누산기 값안에 b최근 참조(현재)값에 2를 곱한 값을 반환해줌
+// 전개구문 (...a) 은 현재까지 누적된 배열 a의 모든 요소를 개별 요소로 분리한 후, 합친다.
+// [...[2]] == [2] -> [2, ...[4]] == [2, 4] -> [2, 4, ...[6]] == [2, 4, 6]
 
 // map 이용한 방법
 function solution(numbers) {
-    return numbers.map((number) => number * 2) // numbers의 요소를 각 number에 짝지어서 그 값에 *2를 하고 반환
+    return numbers.map((number) => number * 2)
 }
+// numbers의 요소를 각 number에 짝지어서 그 값에 *2를 하고 반환
 
 // !문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120809
