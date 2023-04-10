@@ -19,3 +19,5 @@ function solution(angle) {
 }
 // 정말 참신한 답안
 // filter 메서드로 각 배열의 값이 angle>=x 가 true가 될때 반환되는 배열의 길이를 리턴한다.
+
+// !문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120829
