@@ -9,22 +9,25 @@ button {
 }
 
 .a11y-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
 }
 
 .l-wrap {
     max-width: 1280px;
-    text-align: center;
     margin: 0 auto;
     padding: 10px 60px;
     gap: 10px;
+}
+
+header {
+    text-align: center;
 }
 
 section form{
@@ -37,7 +40,7 @@ section form{
 }
 
 .inp-title,
-.diary-textarea,
+.content-textarea,
 button {
     display: block;
     max-width: 100%;
@@ -62,7 +65,7 @@ fieldset {
     font-size: 1.2em;
 }
 
-.diary-textarea {
+.content-textarea {
     min-height: 100px;
     font-size: 1.5em;
 }
@@ -78,17 +81,20 @@ fieldset {
 
 /* card */
 
-article {
+.section-container {
     max-width: 1280px;
     display: flex;
     gap: 10px;
      /* wrap : 줄바꿈처리 */
     flex-wrap: wrap;
-    margin: auto;
+}
+
+.section-container .card-item {
+    width: calc((100% - (10px * 2)) / 3);
 }
 
 .card-item a {
-    min-width: 250px;
+    width: 100%;
     color: #29363d;
     text-decoration: none;
     border-radius: 8px;
@@ -96,29 +102,30 @@ article {
     background: #fff;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-  }
-  
-  .card-item img {
+}
+
+.card-item img {
     width: 100%;
     aspect-ratio: 3/2;
     object-fit: cover;
     vertical-align: top;
     /* padding-top; */
-  }
-  
-  .card-text {
+}
+
+.card-text {
     padding: 10px;
-  }
-  
-  .card-text .title {
+}
+
+.card-text .title {
     font-size: 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     border-bottom: solid 1px black;
-  }
-  
-  .card-text .title + p {
+    text-align: center;
+}
+
+.card-text .title + p {
     font-size: 12px;
     color: #5a6a72;
     overflow: hidden;
@@ -130,6 +137,12 @@ article {
     line-height: 20px;
     height: 40px;
     border-bottom: solid 1px black;
-  }
+}
 
-/* 여기까지 내일은 다이어리를 보면서 연습 */
+.underline {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    padding-left: 6px;
+    text-align: end;
+}
