@@ -90,7 +90,7 @@ fieldset {
 }
 
 .section-container .card-item {
-    width: calc((100% - (10px * 2)) / 3);
+    width: calc((100% - (10px * 3)) / 4);
 }
 
 .card-item a {
@@ -106,7 +106,6 @@ fieldset {
 
 .card-item img {
     width: 100%;
-    aspect-ratio: 3/2;
     object-fit: cover;
     vertical-align: top;
     /* padding-top; */
