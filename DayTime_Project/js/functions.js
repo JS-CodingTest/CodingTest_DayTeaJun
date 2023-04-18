@@ -12,7 +12,8 @@ const sectionContainer = document.querySelector('.section-container');
 
 const today = new Date();
 
-inpBtn.addEventListener('click', function () {
+inpBtn.addEventListener('click', function (e) {
+    e.preventDefault();
     if (!inpTitle.value)// 제목이 입력되지 않으면 alert 발생
         alert('제목을 입력해 주세요!');
     else if (!contentText.value)// 내용이 입력되지 않으면 alert 발생
