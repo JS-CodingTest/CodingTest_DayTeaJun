@@ -10,5 +10,6 @@ function solution(my_string) {
         .match(/[0-9]/g)
         .reduce((a, b) => parseInt(a) + parseInt(b), 0)
 }
+// match로 true 값을 반환후, reduce로 안의 값 합산
 
 // !문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120851
