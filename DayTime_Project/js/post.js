@@ -1,9 +1,3 @@
-// 게시물 만들기
-// 텍스트를 입력받고, 제목, 내용을 받은다음
-// 각 입력받는 칸(제목, 내용, 이미지 등) 옆에 color picker 버튼을 만듦
-// 각 제목과 내용에 글자색을 넣고, 게시물 올리기 버튼을 누르면
-// 밑에 카드 생성
-
 const inpTitle = document.querySelector('.inp-title'); // 제목
 const contentText = document.querySelector('#content-textarea'); // 내용
 const inpBtn = document.querySelector('.inp-btn'); // 버튼
@@ -24,7 +18,6 @@ inpBtn.addEventListener('click', function (e) {
     else if (!contentText.value)
         alert('내용을 입력해 주세요!');
     else {
-
         const title = inpTitle.value;
         const content = contentText.value;
         allPost.push({ title, content, len: allPost.length });
@@ -39,8 +32,11 @@ function render() {
 
     const sectionContainer = document.querySelector('.section-container');
     sectionContainer.innerHTML = "";
+    let count = 0;
 
     for (const item of allPost) {
+        count += 1
+
         const cardItem = document.createElement('article');
         cardItem.setAttribute('class', 'card-item');
         sectionContainer.appendChild(cardItem);
@@ -75,7 +71,7 @@ function render() {
         const sequence = document.createElement('p');
         sequence.setAttribute('class', 'sequence');
         cardFooter.appendChild(sequence);
-        sequence.textContent = `${item.len + 1}번 카드`
+        sequence.textContent = `${count}번 카드`
 
         const underline = document.createElement('p');
         underline.setAttribute('class', 'underline');
@@ -89,6 +85,7 @@ function render() {
         deletePostBtn.setAttribute('onclick', 'remove()');
         cardItem.appendChild(deletePostBtn);
         deletePostBtn.textContent = 'x'
+        // img 넣고 싶은데 넣으면 에러가 뜸 (수정예정)
     }
 
 }
