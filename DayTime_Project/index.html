@@ -18,34 +18,37 @@
 
         <section>
             <form>
-                <fieldset>
-                    <label for="title-txt" class="a11y-hidden"></label>
-                    <input type="text" id="title-txt" class="inp-title" placeholder="제목">
+                <label for="title-txt" class="a11y-hidden">제목</label>
+                <input type="text" id="title-txt" class="inp-title" placeholder="제목">
 
-                    <label for="picker-txt" class="a11y-hidden">제목적어</label>
-                    <input type="color" id="picker-txt" class="inp-picker" data-id="cardColor">
-                </fieldset>
-                <textarea class="content-textarea" placeholder="내용을 입력하세요."></textarea>
+                <textarea id="content-textarea" placeholder="내용을 입력하세요."></textarea>
+
                 <button class="inp-btn" type="submit">제출하기</button>
             </form>
-
         </section>
 
         <section class="section-container">
-            <!-- <article class="card-item">
-                <a href="#" class="card-border">
-                    <img src="./img/cat.jpg" alt="">
+            <!-- 카드 샘플 실행시 로드되지 않음 js로 만들건데 미리 html문서에 작성 -->
+            <article class="card-item">
+                <!-- javascript:void(0); : 링크 클릭 시 다른 페이지 또는 페이지가 다시 로딩되지 않게 함 -->
+                <a href="javascript:void(0);" class="card-border">
+                    <img class="card-img" src="./img/cat.jpg" alt="고양이사진입니다">
                     <div class="card-text">
                         <h2 class="title">샘플</h2>
                         <p class="content">내용</p>
-                        <p class="underline">2023-04-15</p>
+                        <div class="card-footer">
+                            <p class="sequence">1번 카드</p>
+                            <p class="underline">2023-04-15</p>
+                        </div>
                     </div>
                 </a>
-            </article> -->
+                <button class="close" type="button">x</button>
+            </article>
         </section>
     </div>
 
 
+    <!-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script> -->
     <script src="./js/functions.js"></script>
 </body>
 

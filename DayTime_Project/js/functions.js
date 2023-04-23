@@ -5,26 +5,48 @@
 // 밑에 카드 생성
 
 const inpTitle = document.querySelector('.inp-title'); // 제목
-const contentText = document.querySelector('.content-textarea'); // 내용
+const contentText = document.querySelector('#content-textarea'); // 내용
 const inpBtn = document.querySelector('.inp-btn'); // 버튼
-
-const sectionContainer = document.querySelector('.section-container');
-
 const today = new Date();
 
+
+// 로컬스토리지에 저장
+let allPost = JSON.parse(localStorage.getItem("allPost"));
+allPost = allPost ?? [];
+render();
+
+// 제출하기 버튼 클릭시 로컬스토리지에 저장
 inpBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    if (!inpTitle.value)// 제목이 입력되지 않으면 alert 발생
+
+    if (!inpTitle.value)
         alert('제목을 입력해 주세요!');
-    else if (!contentText.value)// 내용이 입력되지 않으면 alert 발생
+    else if (!contentText.value)
         alert('내용을 입력해 주세요!');
     else {
+
+        const title = inpTitle.value;
+        const content = contentText.value;
+        allPost.push({ title, content, len: allPost.length });
+        localStorage.setItem("allPost", JSON.stringify(allPost));
+        inpTitle.value = "";
+        contentText.value = "";
+        render()
+    }
+})
+
+function render() {
+
+    const sectionContainer = document.querySelector('.section-container');
+    sectionContainer.innerHTML = "";
+
+    for (const item of allPost) {
         const cardItem = document.createElement('article');
         cardItem.setAttribute('class', 'card-item');
         sectionContainer.appendChild(cardItem);
 
         const cardBorder = document.createElement('a');
-        cardBorder.setAttribute('href', '#');
+        cardBorder.setAttribute('href', 'javascript:void(0);');
         cardItem.appendChild(cardBorder);
 
         const cardImg = document.createElement('img');
@@ -39,19 +61,47 @@ inpBtn.addEventListener('click', function (e) {
         const title = document.createElement('h2');
         title.setAttribute('class', 'title');
         cardText.appendChild(title);
-        title.textContent = inpTitle.value;
+        title.textContent = item.title;
 
         const content = document.createElement('p');
         content.setAttribute('class', 'content');
         cardText.appendChild(content);
-        content.textContent = contentText.value;
+        content.textContent = item.content;
+
+        const cardFooter = document.createElement('div');
+        cardFooter.setAttribute('class', 'card-footer')
+        cardText.appendChild(cardFooter);
+
+        const sequence = document.createElement('p');
+        sequence.setAttribute('class', 'sequence');
+        cardFooter.appendChild(sequence);
+        sequence.textContent = `${item.len + 1}번 카드`
 
         const underline = document.createElement('p');
         underline.setAttribute('class', 'underline');
-        cardText.appendChild(underline);
+        cardFooter.appendChild(underline);
         underline.textContent = today.toISOString().slice(0, 10);
 
-        inpTitle.value = "";
-        contentText.value = "";
+        const deletePostBtn = document.createElement('button');
+        deletePostBtn.setAttribute('class', 'close');
+        deletePostBtn.setAttribute('title', '닫기버튼입니다.');
+        deletePostBtn.setAttribute('id', item.len);
+        deletePostBtn.setAttribute('onclick', 'remove()');
+        cardItem.appendChild(deletePostBtn);
+        deletePostBtn.textContent = 'x'
     }
-})
+
+}
+
+function remove() {
+    const idx = allPost.find(item => item.len == event.srcElement.id);
+
+    if (idx) {
+        allPost.splice(
+            allPost.findIndex((item) => item.len == idx.len), 1
+        )
+    }
+
+    localStorage.setItem("allPost", JSON.stringify(allPost));
+    render();
+}
