@@ -32,6 +32,7 @@ function render() {
 
     const sectionContainer = document.querySelector('.section-container');
     sectionContainer.innerHTML = "";
+    // const frag = document.createDocumentFragment(); // 가상 돔 만듦
     let count = 0;
 
     for (const item of allPost) {
