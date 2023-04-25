@@ -30,8 +30,8 @@ inpBtn.addEventListener('click', function (e) {
 
 function render() {
 
-    const sectionContainer = document.querySelector('.section-container');
-    sectionContainer.innerHTML = "";
+    const articleContainer = document.querySelector('.article-container');
+    articleContainer.innerHTML = "";
     // const frag = document.createDocumentFragment(); // 가상 돔 만듦
     let count = 0;
 
@@ -40,10 +40,11 @@ function render() {
 
         const cardItem = document.createElement('article');
         cardItem.setAttribute('class', 'card-item');
-        sectionContainer.appendChild(cardItem);
+        articleContainer.appendChild(cardItem);
 
         const cardBorder = document.createElement('a');
-        cardBorder.setAttribute('href', 'javascript:void(0);');
+        cardBorder.setAttribute('title', `${count}번 카드입니다.`);
+        cardBorder.setAttribute('onclick', 'postLink()');
         cardItem.appendChild(cardBorder);
 
         const cardImg = document.createElement('img');
@@ -85,7 +86,7 @@ function render() {
         deletePostBtn.setAttribute('id', item.len);
         deletePostBtn.setAttribute('onclick', 'remove()');
         cardItem.appendChild(deletePostBtn);
-        deletePostBtn.textContent = 'x'
+        deletePostBtn.textContent = '✖️'
         // img 넣고 싶은데 넣으면 에러가 뜸 (수정예정)
     }
 
@@ -102,4 +103,8 @@ function remove() {
 
     localStorage.setItem("allPost", JSON.stringify(allPost));
     render();
+}
+
+function postLink() {
+    alert('게시물이 아직 준비되지 않았습니다!');
 }
