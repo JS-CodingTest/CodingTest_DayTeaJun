@@ -11,7 +11,7 @@ function solution(n) {
       arr.push(i);
     }
   }
-  return arr.reduce((cv, ac) => cv + ac, 0);
+  return arr.reduce((acc, cur) => acc + cur, 0);
 }
 
 // 배열 안쓰기
