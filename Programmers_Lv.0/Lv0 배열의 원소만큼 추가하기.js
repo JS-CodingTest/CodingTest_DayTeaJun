@@ -24,5 +24,11 @@ function solution(arr) {
 // reduce 메소드를 이용하여 새 배열을 num만큼 만들고 fill메소드를 이용하여 채운뒤 스프레드(...)를 이용하여 다 채운다.
 
 // 풀이 방법 3
+function solution(arr) {
+  return arr.reduce((a, c) => a.concat(Array(c).fill(c)), []);
+}
+// concat() 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환함.
+
+// 풀이 방법 4
 const solution = (a) => a.map((v) => Array(v).fill(v)).flat();
 // map 메서드를 이용하여 새 배열에 v값을 다채운뒤 flat 을 이용하여 안의 배열을 전부 split('')한 것 처럼 해줌, 하위 배열을 이어붙인 새로운 배열.
