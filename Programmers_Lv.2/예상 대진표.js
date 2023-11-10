@@ -8,8 +8,8 @@
 // A, B : N 이하인 자연수 (단, A ≠ B 입니다.)
 
 function solution(n, a, b) {
-  let round = 1;
-  while (Math.ceil(a / 2) !== Math.ceil(b / 2)) {
+  let round = 0;
+  while (a !== b) {
     a = Math.ceil(a / 2);
     b = Math.ceil(b / 2);
     round++;
